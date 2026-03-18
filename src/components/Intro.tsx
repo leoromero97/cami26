@@ -25,7 +25,7 @@ export const Intro: React.FC<IntroProps> = ({ onStart, targetName }) => {
       >
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
-            Hola, {targetName}
+            Hola {targetName}
           </h1>
           <p className="text-lg md:text-xl text-gray-400 font-light max-w-md mx-auto">
             Preparé algo especial para vos. <br />
