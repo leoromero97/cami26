@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Pause, Play, Music } from 'lucide-react';
+import { Pause, Play } from 'lucide-react';
 
 interface AudioControlsProps {
   isPlaying: boolean;
@@ -18,7 +18,7 @@ export const AudioControls: React.FC<AudioControlsProps> = ({ isPlaying, onToggl
     >
       <button
         onClick={onToggle}
-        className="group relative flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl hover:bg-white/20 transition-all text-white"
+        className="group relative flex items-center justify-center w-14 h-14 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full shadow-2xl hover:bg-white/20 transition-all text-white hover:cursor-pointer"
       >
         {/* Efecto de onda cuando suena */}
         {isPlaying && (

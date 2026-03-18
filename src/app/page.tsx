@@ -6,11 +6,12 @@ import { LyricSection } from "@/components/LyricSection";
 import { AnimatePresence } from "framer-motion";
 import { BluetoothBanner } from "@/components/BluetoothBanner";
 import { AudioControls } from "@/components/AudioControls";
+import GiftBox from "@/components/GiftBox";
 
 export default function Home() {
   const [hasStarted, setHasStarted] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(true); 
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const reggaetonRef = useRef<HTMLAudioElement | null>(null);
   const marilynRef = useRef<HTMLAudioElement | null>(null);
@@ -18,7 +19,7 @@ export default function Home() {
 
   // Helper para pausar todo
   const pauseAll = () => {
-    [reggaetonRef, marilynRef, delaRef].forEach(ref => {
+    [reggaetonRef, marilynRef, delaRef].forEach((ref) => {
       if (ref.current) ref.current.pause();
     });
   };
@@ -65,8 +66,8 @@ export default function Home() {
   const togglePlayPause = () => {
     // Buscamos cuál es el audio que tiene contenido y no está en 0
     const currentAudio = [delaRef, marilynRef, reggaetonRef]
-      .map(r => r.current)
-      .find(a => a !== null && a.currentTime > 0);
+      .map((r) => r.current)
+      .find((a) => a !== null && a.currentTime > 0);
 
     if (currentAudio) {
       if (isPlaying) {
@@ -85,7 +86,9 @@ export default function Home() {
       </AnimatePresence>
 
       <AnimatePresence>
-        {!hasStarted && <Intro targetName="Cami" onStart={handleStart} />}
+        {!hasStarted && (
+          <Intro targetName="amorcito ❤️" onStart={handleStart} />
+        )}
       </AnimatePresence>
 
       {/* 4. Mostrar el botón solo si la experiencia empezó */}
@@ -95,7 +98,9 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      <div className={`transition-opacity duration-1000 ${hasStarted ? "opacity-100" : "opacity-0"}`}>
+      <div
+        className={`transition-opacity duration-1000 ${hasStarted ? "opacity-100" : "opacity-0"}`}
+      >
         <div className="h-screen flex items-center justify-center">
           <p className="text-zinc-500 italic animate-pulse">Bajá despacio...</p>
         </div>
@@ -111,11 +116,7 @@ export default function Home() {
           artist="De La Ghetto"
           onEnter={playDela}
         />
-
-        <div className="h-screen flex items-center justify-center">
-          <p className="text-zinc-600">Continuará...</p>
-          {/* Acá la caja sorpresa con las entradas */}
-        </div>
+        <GiftBox contentImageUrl="/img/ticket.png" />
       </div>
     </main>
   );
