@@ -110,9 +110,17 @@ export default function Home() {
     if (!arcaRef.current) {
       const audio = new Audio("/audio/arca.mp3");
       arcaRef.current = audio;
-      audio.volume = 0.7;
+audio.volume = 0.7;
+
+      // 🔥 La magia ocurre acá:
+      // Seteamos el puntero en el segundo 28 antes de arrancar
+      audio.currentTime = 28; 
+      
       audio.play();
     } else {
+      // Si ya existía pero estaba pausado, 
+      // nos aseguramos de que siga desde donde estaba o forzamos los 28s
+      // arcaRef.current.currentTime = 28; // Descomenta esta línea si querés que SIEMPRE reinicie en 28s al entrar a la sección
       arcaRef.current.play();
     }
     setIsPlaying(true);

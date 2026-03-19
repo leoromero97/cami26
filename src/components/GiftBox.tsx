@@ -101,9 +101,9 @@ export const GiftBox: React.FC<GiftBoxProps> = ({ contentImageUrl }) => {
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-pink-300 text-xl font-light italic whitespace-nowrap"
+            className="absolute -bottom-16 left-1/2 -translate-x-1/2 text-pink-300 text-xl font-light italic whitespace-nowrap "
           >
-            {isOpen ? 'Te amo infinitamente mi amor, que seas muy felíz ❤️' : 'Tocá la caja para abrirla'}
+            {isOpen ? `Te amo, que seas muy felíz ❤️` : 'Tocá la caja para abrirla'}
           </motion.p>
       </button>
     </div>
