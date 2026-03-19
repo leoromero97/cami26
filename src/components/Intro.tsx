@@ -6,10 +6,10 @@ import { Play } from 'lucide-react';
 
 interface IntroProps {
   onStart: () => void;
-  targetName: string;
+  title: string;
 }
 
-export const Intro: React.FC<IntroProps> = ({ onStart, targetName }) => {
+export const Intro: React.FC<IntroProps> = ({ onStart, title }) => {
   return (
     <motion.div
       initial={{ opacity: 1 }}
@@ -25,11 +25,11 @@ export const Intro: React.FC<IntroProps> = ({ onStart, targetName }) => {
       >
         <div className="space-y-4">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tighter">
-            Hola {targetName}
+            {title}
           </h1>
           <p className="text-lg md:text-xl text-gray-400 font-light max-w-md mx-auto">
-            Preparé algo especial para vos. <br />
-            Subí el volumen y disfrutá del viaje.
+            Preparé algo especial para vos <br />
+            ¿Estás lista?
           </p>
         </div>
 
@@ -39,9 +39,9 @@ export const Intro: React.FC<IntroProps> = ({ onStart, targetName }) => {
           onClick={onStart}
           className="group relative inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold text-lg overflow-hidden transition-all hover:cursor-pointer"
         >
-          <div className="absolute inset-0 bg-blue-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+          <div className="absolute inset-0 bg-pink-500 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           <span className="relative z-10 flex items-center gap-2 group-hover:text-white transition-colors">
-            Empezar experiencia <Play size={20} fill="currentColor" />
+            Comenzar
           </span>
         </motion.button>
       </motion.div>
